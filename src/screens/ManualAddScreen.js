@@ -1,14 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import ManualAddScreen from './src/screens/ManualAddScreen';
-
-export default function App() {
+export default function ManualAddScreen() {
   return (
     <View style={styles.container}>
-      <ManualAddScreen />
-      <StatusBar style="auto" />
+      <Text>Start Coding inside this View container, GoodLuck</Text>
     </View>
   );
 }
