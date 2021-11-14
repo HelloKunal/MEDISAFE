@@ -9,7 +9,7 @@ import ManualAddScreen from './src/screens/ManualAddScreen';
 export default function App() {
   return (
     <View style={styles.container}>
-      <CalendarScreen />
+      <ManualAddScreen />
       <StatusBar style="auto" />
     </View>
   );
