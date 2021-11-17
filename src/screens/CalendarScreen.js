@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import { StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -6,24 +6,27 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import object from '../data/prescription1';
 
 export default function ManualAddScreen() {
-
+  const [obj, setobjstate] = useState(object[0]);
+  
   const getData = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem('@storage_Key')
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
+      const obje = await AsyncStorage.getItem('@storage_Key')
+      setobjstate(obje);
+      console.warn(obj);
+      // console.warn(obje);
+      return obje != null ? JSON.parse(obje) : null;
     } catch(e) {
       // error reading value
-      console.warn("ERROR");
     }
   }
-  
-  console.warn(getData());
 
+
+  getData();  
   return (
     <View style={styles.container}>
       <Calendar
         // Collection of dates that have to be marked. Default = {}
-        markedDates={object[0]}
+        markedDates={obj}
       />
     </View>
   );

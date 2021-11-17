@@ -9,7 +9,17 @@ import BarCodeScannerScreen from './src/screens/BarCodeScannerScreen';
 import CalendarScreen from './src/screens/CalendarScreen';
 import ManualAddScreen from './src/screens/ManualAddScreen';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Stack = createNativeStackNavigator();
+
+const storeData = async (value) => {
+  try {
+    await AsyncStorage.setItem('@storage_Key', value)
+  } catch (e) {
+    // saving error
+  }
+}
 
 function HomeScreen({ navigation }) {
   return (
@@ -22,6 +32,10 @@ function HomeScreen({ navigation }) {
       <Button
         title="Go to CalendarScreen"
         onPress={() => navigation.navigate('CalendarScreen')}
+      />
+      <Button
+        title="Custome Save"
+        onPress={() => storeData("ABCD")}
       />
     </View>
   );
