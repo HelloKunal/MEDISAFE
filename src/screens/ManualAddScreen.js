@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function ManualAddScreen() {
   return (
     <View style={styles.container}>
-      <Text>Start Coding inside this View container, GoodLuck</Text>
+      <Text>Start Coding inside this View container, GoodLuck. Parthesh</Text>
     </View>
   );
 }
