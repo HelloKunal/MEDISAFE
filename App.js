@@ -13,9 +13,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createNativeStackNavigator();
 
+const testAsyncData = {
+  name: "Paracetamol",
+  quantity: 5,
+  time: 1,
+};
+
 const storeData = async (value) => {
   try {
-    await AsyncStorage.setItem('@storage_Key', value)
+    const jsonValue = JSON.stringify(value)
+    await AsyncStorage.setItem('@storage_Key', jsonValue)
   } catch (e) {
     // saving error
   }
@@ -35,7 +42,7 @@ function HomeScreen({ navigation }) {
       />
       <Button
         title="Custome Save"
-        onPress={() => storeData("ABCD")}
+        onPress={() => storeData(testAsyncData)}
       />
     </View>
   );

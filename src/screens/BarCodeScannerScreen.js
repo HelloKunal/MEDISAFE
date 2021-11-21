@@ -3,10 +3,7 @@ import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import moment from 'moment'; 
-var now = moment().format("YYYY-MM-DD");
-
-export default function App() {
+export default function App({navigation}) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -30,21 +27,20 @@ export default function App() {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     // console.log(data);
-    JSON.parse(data);
-    let newData = {};
-    // console.warn(now);
-    newData[now] = {};
-    newData[now].marked = true;
-    newData[now].dotColor = "red";
-    newData[now].activeOpacity = 0;
+    data = JSON.parse(data);
     let newDataSet = [];
-    for (var key in data) {
-        if (data.hasOwnProperty(key)) {
-            newDataSet.push(newData);
-            // console.warn("1");
-            // newDanewDataconsole.log(key + " -> " + data[key]);
-        }
+    // console.warn(now);
+    for(let [key, value] of Object.entries(data)) {
+      // console.log(key);   
+      // console.log(value);   
+      let newData = {};   
+      newData.name = key;
+      let temp = value.split(' ');
+      newData.quantity = temp[0];
+      newData.time = temp[1];
+      newDataSet.push(newData);
     }
+    console.log(newDataSet);
     // alert(newDataSet[0].now.marked);
     storeData(newDataSet);
   };
@@ -59,10 +55,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>At Least This is Printed</Text>
-      <Button
-        title="Reset"
-        onPress={() => setScanned(false)}
-      />
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}

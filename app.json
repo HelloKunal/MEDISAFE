@@ -27,11 +27,12 @@
       "permissions": [
         "READ_CALENDAR",
         "WRITE_CALENDAR",
-        "CAMERA",
-      ],
+        "CAMERA"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }
