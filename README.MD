@@ -1,19 +1,26 @@
 # Medicine-Reminder-App
 
-# Steps to Install / Windows
+# How to run this App
+1. First select QRCode scanner button and scan your QR Code from the app
+2. Then go back, and enter calendar screen. Select create new calendar and then select Add Event Diff
+3. Finally your medicine reminders have been added according to your QR Code. Go to your Google Calendar to view them.
+
+# Additional Files
+1. We have included a default Bill with appropriate data for testing. Named ```Bill.pdf```
+2. TDL Addon Files for Tally are placed inside Tally addon folder
+
+# Steps to Install for User
+1. Install Expo on your mobile
+2. Copy this link ```exp://exp.host/@hellokunal/Medicine-Reminder-App``` on your phone clipboard.
+3. Go to Expo app and select Clipboard option under tools
+
+# Steps to Install / Windows For Developer
 1. Install Expo for windows, in your cmd do ```npm install --global expo-cli```
 2. Clone This Repo
 3. Inside the folder in cmd do ```npm install```
 4. Now do ```expo start -c``` and in the browser select tunnel option
 5. Now install Expo Go in your phone
 6. Connect with browser through QR code, or log in
-
-# What is Left to do
-1. Make backend
-2. Make manual add ui
-3. Make Tally template
-4. Convert QR code to data format
-5. Function to add data to firebase
 
 # References
 https://docs.expo.dev/versions/latest/sdk/bar-code-scanner/
