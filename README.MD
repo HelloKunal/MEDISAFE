@@ -7,7 +7,8 @@
 
 # Additional Files
 1. We have included a default Bill with appropriate data for testing. Named ```Bill.pdf```
-2. TDL Addon Files for Tally are placed inside Tally addon folder
+2. TDL Addon Files for Tally are placed inside Tally addon folder.
+3. PPT And Videos ```https://drive.google.com/drive/u/0/folders/1Y44KyneNqX9ZoiW64i-69SEbJ8QqaANG```
 
 # Steps to Install for User
 1. Install Expo on your mobile
