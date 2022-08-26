@@ -1,5 +1,21 @@
 # Medicine-Reminder-App
 
+A Medicine reminder app, build react native and deployed on Expo. Setup up medicine reminders with our new way.
+
+## Tech Stack
+
+**Client:** React Native, Expo
+
+**Add-on:** Tally
+
+**Language:** JavaScript
+  
+## Demo
+
+
+
+### Run Locally
+
 # How to run this App
 1. First select QRCode scanner button and scan your QR Code from the app
 2. Then go back, and enter calendar screen. Select create new calendar and then select Add Event Diff
