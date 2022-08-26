@@ -14,7 +14,7 @@ A Medicine reminder app, build react native and deployed on Expo. Setup up medic
 
 
 
-### Run Locally
+# Run Locally
 
 # How to run this App
 1. First select QRCode scanner button and scan your QR Code from the app
