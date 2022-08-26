@@ -10,28 +10,26 @@ A Medicine reminder app, build react native and deployed on Expo. Setup up medic
 
 **Language:** JavaScript
   
-## Demo
-
-
+# Demo
 
 # Run Locally
 
-# How to run this App
+## How to run this App
 1. First select QRCode scanner button and scan your QR Code from the app
 2. Then go back, and enter calendar screen. Select create new calendar and then select Add Event Diff
 3. Finally your medicine reminders have been added according to your QR Code. Go to your Google Calendar to view them.
 
-# Additional Files
+## Additional Files
 1. We have included a default Bill with appropriate data for testing. Named ```Bill.pdf```
 2. TDL Addon Files for Tally are placed inside Tally addon folder.
 3. PPT And Videos ```https://drive.google.com/drive/u/0/folders/1Y44KyneNqX9ZoiW64i-69SEbJ8QqaANG```
 
-# Steps to Install for User
+## Steps to Install for User
 1. Install Expo on your mobile
 2. Copy this link ```exp://exp.host/@hellokunal/Medicine-Reminder-App``` on your phone clipboard.
 3. Go to Expo app and select Clipboard option under tools
 
-# Steps to Install / Windows For Developer
+## Steps to Install / Windows For Developer
 1. Install Expo for windows, in your cmd do ```npm install --global expo-cli```
 2. Clone This Repo
 3. Inside the folder in cmd do ```npm install```
