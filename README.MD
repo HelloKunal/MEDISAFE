@@ -11,8 +11,8 @@ A Medicine reminder app, build react native and deployed on Expo. Setup up medic
 **Language:** JavaScript
   
 # Demo
-1. Web Client: ```https://fascinating-kheer-405810.netlify.app/```
-2. Mobile Expo App: ```https://expo.dev/@hellokunal/Medicine-Reminder-App?serviceType=classic&distribution=expo-go```
+1. Web Client: https://fascinating-kheer-405810.netlify.app/
+2. Mobile Expo App: https://expo.dev/@hellokunal/Medicine-Reminder-App?serviceType=classic&distribution=expo-go
 
 # Run Locally
 
@@ -24,7 +24,7 @@ A Medicine reminder app, build react native and deployed on Expo. Setup up medic
 ## Additional Files
 1. We have included a default Bill with appropriate data for testing. Named ```Bill.pdf```
 2. TDL Addon Files for Tally are placed inside Tally addon folder.
-3. PPT And Videos ```https://drive.google.com/drive/u/0/folders/1Y44KyneNqX9ZoiW64i-69SEbJ8QqaANG```
+3. PPT And Videos https://drive.google.com/drive/u/0/folders/1Y44KyneNqX9ZoiW64i-69SEbJ8QqaANG
 
 ## Steps to Install for User
 1. Install Expo on your mobile
