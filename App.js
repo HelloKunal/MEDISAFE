@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-
+import { Button, StyleSheet, Text, View, Pressable } from 'react-native';
+import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -28,22 +28,39 @@ const storeData = async (value) => {
   }
 }
 
+
+
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to BarCodeScannerScreen"
+      <Text style={button_styles.button_style}>Home Screen</Text>
+      <View>
+      <Pressable
+        style={button_styles.button_style}
         onPress={() => navigation.navigate('BarCodeScannerScreen')}
-      />
-      <Button
-        title="Go to CalendarScreen"
+      >
+      <Text>Scan QR Code</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
+      <View>
+      <Pressable
+        style={button_styles.button_style}
         onPress={() => navigation.navigate('CalendarScreen')}
-      />
-      <Button
-        title="Custome Save"
+      >
+      <Text>Notifications</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
+      <View>
+      <Pressable
+        style={button_styles.button_style}
         onPress={() => storeData(testAsyncData)}
-      />
+      >
+      <Text>Custome Save</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
     </View>
   );
 }
@@ -51,7 +68,9 @@ function HomeScreen({ navigation }) {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{headerShown: false}}
+      >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="BarCodeScannerScreen" component={BarCodeScannerScreen} />
         <Stack.Screen name="CalendarScreen" component={CalendarScreen} />
@@ -60,11 +79,46 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
+const button_styles = StyleSheet.create({
+  button_style: {
+      "marginTop": 20,
+      "marginRight": 20,
+      "marginBottom": 20,
+      "marginLeft": 20,
+      "fontFamily": "monospace",
+      "fontSize": 20,
+      "fontWeight": "200",
+      "letterSpacing": 1,
+      "paddingTop": 15,
+      "paddingRight": 30,
+      "paddingBottom": 15,
+      "paddingLeft": 30,
+      "outline": 0,
+      "borderWidth": 1,
+      "borderColor": "black",
+      "borderStyle": "solid",
+      "cursor": "pointer",
+      "position": "relative",
+      "backgroundColor": "rgba(0, 0, 0, 0)"
   },
+  button_block_style: {
+      "marginTop": 20,
+      "marginRight": 20,
+      "marginBottom": 20,
+      "marginLeft": 20,
+      "paddingTop": 15,
+      "paddingRight": 30,
+      "paddingBottom": 15,
+      "paddingLeft": 30,
+      "content": "",
+      "backgroundColor": "#ffe54c",
+      "width": 160,
+      "zIndex": -1,
+      "position": "absolute",
+      "height": "60%",
+      "top": 7,
+      "left": 7,
+      "transition": "0.2s"
+  }
 });

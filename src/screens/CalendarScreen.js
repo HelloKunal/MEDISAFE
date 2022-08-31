@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Button, Platform } from 'react-native';
+import { StyleSheet, View, Text, Pressable, Platform } from 'react-native';
 import * as Calendar from 'expo-calendar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -28,8 +28,8 @@ export default function App() {
       const { status } = await Calendar.requestCalendarPermissionsAsync();
       if (status === 'granted') {
         const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT);
-        console.log('Here are all your calendars:');
-        console.log({ calendars });
+        // console.log('Here are all your calendars:');
+        // console.log({ calendars });
       }
     })();
   }, []);
@@ -55,36 +55,76 @@ export default function App() {
   getData();
   return (
     <View style={styles.container}>
-      <Text>Just for setup, Click this button once, and all your reminders will be synced with google calendar on your phone.</Text>
-      <Button title="Create a new calendar" onPress={createCalendar} />
-      <Button title="Calendar ID" onPress={() => {console.warn(CalendarID)}} />
-      <Button title="Get Data" onPress={() => {console.log(testAsyncData)}} />
-      <Button title="Delete All Calendars" onPress={() => {
-        for(let i = 30; i < 100; i++) {
-          try {
-            Calendar.deleteCalendarAsync(i.toString())
+      <Text style={button_styles.button_style}>Click on each button</Text>      
+      <View>
+      <Pressable
+        style={button_styles.button_style}
+        onPress={createCalendar}
+      >
+      <Text>Create a new calendar</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
+      <View>
+      <Pressable
+        style={button_styles.button_style}
+        onPress={console.warn(CalendarID)}
+      >
+      <Text>Get curent Calendar ID</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
+      <View>
+      <Pressable
+        style={button_styles.button_style}
+        onPress={console.log(testAsyncData)}
+      >
+      <Text>Show the data from QR</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
+      <View>
+      <Pressable
+        style={button_styles.button_style}
+        onPress={() => {
+          for(let i = 30; i < 100; i++) {
+            try {
+              Calendar.deleteCalendarAsync(i.toString())
+            }
+            catch(e) {
+              //
+            }
           }
-          catch(e) {
-            //
+        }}
+      >
+      <Text>Delete all the Calendars</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
+      <View>
+      <Pressable
+        style={button_styles.button_style}
+        onPress={() => {
+          for(let tAD of testAsyncData) {          
+            sDate = new Date(now + 'T' + ((tAD.time == 1) ? '09' : (tAD.time == 2) ? '14' : '21') + ':00:00.000Z');
+            eDate = new Date(now + 'T' + ((tAD.time == 1) ? '10' : (tAD.time == 2) ? '15' : '22') + ':00:00.000Z');
+            console.log(sDate);
+            console.log(eDate);
+            console.log(tAD.quantity);
+            testEventData = {
+              title: tAD.name,
+              startDate: sDate,
+              endDate: eDate,
+              occurrence: Number(tAD.quantity),
+            }
+            addEvent(testEventData)
           }
-        }
-      }} />
-      <Button title="Add Event Diff" onPress={() => {
-        for(let tAD of testAsyncData) {          
-          sDate = new Date(now + 'T' + ((tAD.time == 1) ? '09' : (tAD.time == 2) ? '14' : '21') + ':00:00.000Z');
-          eDate = new Date(now + 'T' + ((tAD.time == 1) ? '10' : (tAD.time == 2) ? '15' : '22') + ':00:00.000Z');
-          console.log(sDate);
-          console.log(eDate);
-          console.log(tAD.quantity);
-          testEventData = {
-            title: tAD.name,
-            startDate: sDate,
-            endDate: eDate,
-            occurrence: Number(tAD.quantity),
-          }
-          addEvent(testEventData)
-        }
-      }} />
+        }}
+      >
+      <Text>Add Events on Calendar</Text>
+      </Pressable>
+      <View style={button_styles.button_block_style}></View>
+      </View>
     </View>
     // 
   );
@@ -145,6 +185,49 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
+});
+
+const button_styles = StyleSheet.create({
+  button_style: {
+      "marginTop": 20,
+      "marginRight": 20,
+      "marginBottom": 20,
+      "marginLeft": 20,
+      "fontFamily": "monospace",
+      "fontSize": 20,
+      "fontWeight": "200",
+      "letterSpacing": 1,
+      "paddingTop": 15,
+      "paddingRight": 30,
+      "paddingBottom": 15,
+      "paddingLeft": 30,
+      "outline": 0,
+      "borderWidth": 1,
+      "borderColor": "black",
+      "borderStyle": "solid",
+      "cursor": "pointer",
+      "position": "relative",
+      "backgroundColor": "rgba(0, 0, 0, 0)"
+  },
+  button_block_style: {
+      "marginTop": 20,
+      "marginRight": 20,
+      "marginBottom": 20,
+      "marginLeft": 20,
+      "paddingTop": 15,
+      "paddingRight": 30,
+      "paddingBottom": 15,
+      "paddingLeft": 30,
+      "content": "",
+      "backgroundColor": "#ffe54c",
+      "width": 215,
+      "zIndex": -1,
+      "position": "absolute",
+      "height": "60%",
+      "top": 7,
+      "left": 7,
+      "transition": "0.2s"
+  }
 });
