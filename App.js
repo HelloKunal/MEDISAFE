@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, StyleSheet, Text, View, Pressable } from 'react-native';
+import { Button, StyleSheet, Text, View, Pressable, LogBox } from 'react-native';
 import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,6 +12,7 @@ import ManualAddScreen from './src/screens/ManualAddScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createNativeStackNavigator();
+LogBox.ignoreAllLogs();
 
 const testAsyncData = {
   name: "Paracetamol",
@@ -55,9 +56,9 @@ function HomeScreen({ navigation }) {
       <View>
       <Pressable
         style={button_styles.button_style}
-        onPress={() => storeData(testAsyncData)}
+        onPress={() => navigation.navigate('ManualSave')}
       >
-      <Text>Custome Save</Text>
+      <Text>Manual Save</Text>
       </Pressable>
       <View style={button_styles.button_block_style}></View>
       </View>
@@ -74,6 +75,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="BarCodeScannerScreen" component={BarCodeScannerScreen} />
         <Stack.Screen name="CalendarScreen" component={CalendarScreen} />
+        <Stack.Screen name="ManualSave" component={ManualAddScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -100,6 +102,7 @@ const button_styles = StyleSheet.create({
       "borderStyle": "solid",
       "cursor": "pointer",
       "position": "relative",
+      "backgroundColor": "#ffe54c",
       "backgroundColor": "rgba(0, 0, 0, 0)"
   },
   button_block_style: {

@@ -11,7 +11,7 @@ A Medicine reminder app, build react native and deployed on Expo. Setup up medic
 **Language:** JavaScript
   
 # Demo
-1. Web Client: https://fascinating-kheer-405810.netlify.app/
+1. Web Client: https://fascinating-kheer-405810.netlify.app/ ( Only UI, no functionality. Because camera is not accessable )
 2. Mobile Expo App: https://expo.dev/@hellokunal/Medicine-Reminder-App?serviceType=classic&distribution=expo-go
 
 ## How to run this App
